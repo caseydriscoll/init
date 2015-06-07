@@ -2,7 +2,7 @@
 
 # Install desired packages
 
-apt-get install tree htop php5-cli
+apt-get install tree htop php5-cli tmux
 
 
 # Install WP-CLI
@@ -16,9 +16,18 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 # Create user casey
 
 adduser casey
+usermod -a -G sudo casey
+usermod -a -G www-data casey
+
 cp -R ~/.ssh /home/casey/.ssh
 cd /home/casey
 
 git clone git@github.com:caseypatrickdriscoll/dot.git
 
 chown -R casey:casey /home/casey
+
+
+# Update WordPress file rights
+if [ -d "/var/www/wp-content" ]; then
+  chmod -R 664 /var/www/
+fi
