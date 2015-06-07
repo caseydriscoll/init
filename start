@@ -29,5 +29,5 @@ chown -R casey:casey /home/casey
 
 # Update WordPress file rights
 if [ -d "/var/www/wp-content" ]; then
-  chmod -R 664 /var/www/
+  chmod -R 775 /var/www/
 fi
