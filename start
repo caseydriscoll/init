@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Install desired packages
+
+apt-get install tree htop php5-cli
+
+
+# Install WP-CLI
+# http://wp-cli.org/
+
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+chmod +x wp-cli.phar
+sudo mv wp-cli.phar /usr/local/bin/wp
+
+
+# Create user casey
+
+adduser casey
+cp -R ~/.ssh /home/casey/.ssh
+chown -R casey:casey /home/casey
